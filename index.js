@@ -1,32 +1,30 @@
- function countWords(stringOfWords) {
-  //if imput is empty, return anm empty Object
-  if (stringOfWords === '') {
-    return  {};
+function countWords(str) {
+//v if statement handling empty string into an empty object
+if (str ===''){
+  return {};
+}
+/// v result object to receive all results
+var result = {};
+// v splitting imput string into an array of words
+var words = str.split(' ');
+//interating thru array of words
+for (var i = 0; i < words.length; i++) {
+  if (result[words[i]] === undefined) {
+    result[words[i]] = 1;
+} else {
+     result[words[i]] ++;
   }
-// result count obj
-var counts = {};
-//split input into a manageble array of words
-var words = stringOfWords.split(' ');
-//iterate over a array of words
-for (var i = 0 ; i < words.length; i++){
-var currentWord = words[i];
-// check if current word is not in object
-if (counts[currentWord] === undefined) {
- counts [currentWord] = 1;
-} else{
-counts [currentWord]++ ;
+}//if its the first time will create key
+//otherwise
+///if is NOT the first time (existing key) increase it +1
+// returning result to result object in line 7
+return result;
 }
-}
-//returns the result count of tghe object
-return counts;
-}
+
 /*
-Given a string (words separated by spaces), "countWords" returns an object where each key is a word in the given string, with its value being how many times that word appeared in the given string. If given an empty string, your function should return an empty object.
-*/
+Write a function called "countWords".
+Given a string, "countWords" returns an object where each key is a word in the given string, with its value being how many times that word appeared in the given string.
+If given an empty string, it should return an empty object. */
 
-
-var result1 = countWords('ask a bunch get a bunch');
-console.log('should log "{ask: 1, a: 2, bunch: 2, get: 1}":', result1);
-
-var result2 = countWords('');
-console.log('should log "{}":', result2);
+var output = countWords('ask a bunch get a bunch');
+console.log(output); // --> {ask: 1, a: 2, bunch: 2, get: 1}
